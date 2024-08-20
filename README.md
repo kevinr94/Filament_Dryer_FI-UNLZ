@@ -1,6 +1,7 @@
 - Estructura
 	- Material madera
 	- Bisagra para tapa superior
+  	- Aislante
 
 - Mecánica
 	- Soporte para resistencia
