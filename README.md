@@ -8,7 +8,7 @@
 	- Ventilador recirculador
 
 - Electrónica
-	- ESP32 ♦
+	- ESP32 ✅
 	- Pantalla LCD (ver disponibilidad)
 	- Fuente 220VCA a 5VC para alimentar ESP32
 	- Modulo relé para controlar resistencia
