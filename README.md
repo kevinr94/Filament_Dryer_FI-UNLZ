@@ -1,11 +1,11 @@
 - Estructura
 	- Material madera
 	- Bisagra para tapa superior
-  	- Aislante
+  	- ✅ Aislante
 
 - Mecánica
 	- Soporte para resistencia
-	- Ventilador recirculador
+	- ✅ Ventilador recirculador
 
 - Electrónica
 	- ✅ ESP32
@@ -17,5 +17,7 @@
 	- Modulo relé para controlar resistencia y ventiladores (ver disponibilidad)
 
 El programa
-- La pantalla debe mostrar la temperatura actual y la objetivo de secado, ademas de la humedad. Se debe mostrar un temporizador, que se setea a través de los programas. Una vez llegado a cero se debe apagar la resistencia.
-- Los fan 5015 funcionaran cuando se prenda la resistencia, pero se tienen que poder apagar o prender manualmente
+- ✅ Pantalla principal: Debe mostrar la temperatura (°C) y la humedad actual (%), ademas de un grafico con la temperatura  en funcion del tiempo (Mas que nada para ver si hubo variaciones de temperatura en algún momento).
+- Menu o configuración para setear la temperatura y temporizador, en la parte de arriba. En la parte de abajo indicar temperatura y tiempo para cada material. Ambos valores (temp. y temporizador) se deben visualizar en la pantalla principal
+- Boton de "Menu" para entrar a configuración y volver a pantalla principal. Boton para aumentar o disminuir valores y boton de "Ok".
+- Los fan 5015 funcionaran cuando se prenda la resistencia, pero se tienen que poder apagar o prender manualmente.
