@@ -21,3 +21,4 @@ El programa
 - Menu o configuración para setear la temperatura y temporizador, en la parte de arriba. En la parte de abajo indicar temperatura y tiempo para cada material. Ambos valores (temp. y temporizador) se deben visualizar en la pantalla principal
 - Boton de "Menu" para entrar a configuración y volver a pantalla principal. Boton para aumentar o disminuir valores y boton de "Ok".
 - Los fan 5015 funcionaran cuando se prenda la resistencia, pero se tienen que poder apagar o prender manualmente.
+- Controlar resistencia por PID
