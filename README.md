@@ -22,3 +22,4 @@ El programa
 - Boton de "Menu" para entrar a configuración y volver a pantalla principal. Boton para aumentar o disminuir valores y boton de "Ok".
 - Los fan 5015 funcionaran cuando se prenda la resistencia, pero se tienen que poder apagar o prender manualmente.
 - Controlar resistencia por PID
+- Boton de Telegram Wifi 
