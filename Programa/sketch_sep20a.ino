@@ -4,8 +4,7 @@
 #include <Adafruit_GFX.h>		
 #include <Adafruit_SSD1306.h>
 #include <WiFi.h>
-#include <WebServer.h> // Librería para el servidor web
-	
+#include <WebServer.h> // Librería para el servidor web	
 //Iniciamos la pantalla OLED
 #define ANCHO 128			
 #define ALTO 64	
@@ -14,7 +13,7 @@ Adafruit_SSD1306 display(ANCHO, ALTO);
 //Iniciamos sensor DHT22
 int pinDHT = 15;
 DHTesp dht;
-
+//Variables del temporizador de la grafica
 int anteriorMillis = 0;
 int tiempo = 0;
 float temperatura = 0;
@@ -27,16 +26,16 @@ int indexBuffer = 0; // Índice del buffer para el promedio móvil
 int totalLecturas = 0; // Total de lecturas acumuladas
 unsigned long intervalo = 1000; // Intervalo en milisegundos para actualizar la gráfica (ajústalo según necesites)
 unsigned long ultimaActualizacion = 0;
-int temp_obj = 0; //Variable de temperatura objetivo
-int HS_obj = 0; //Seteable
-int MIN_obj = 0; //Seteable
+int temp_obj = 0; //Variable de temperatura objetivo. Seteable
+int HS_obj = 0; //Horas objetivo. Seteable
+int MIN_obj = 0; //Minuntos sobjetivo. Seteable
 int HS_total = 0; //Mostrar en pantalla
 int MIN_total = 0; //Mostrar pantalla
 int tiempo_total; //Contempla el HS_obj+MIN_obj en segundos
 int tiempo_obj = 0; //Variable de tiempo objetivo
-int menu = 0;
-int menu2 = 0;
-int menu3 = 0;
+int menu = 0;//Flag menu principal
+int menu2 = 0;//Flag para alternar entre temp_obj y tiempo_obj
+int menu3 = 0;//Flag para alternar entre control manual de resistencia y ventiladores
 int prog = 0; //Flag para programa
 String valor; //Estado de resistencia
 String valor2; //Estado de fan
@@ -46,6 +45,7 @@ const int menu_down = 2; //Botón para decrecer valores
 const int menu_config = 17; //Botón para alternar entre temp y tiempo
 const int fan = 19; //Salida para encender ventiladores
 const int resistencia = 18; //Salida para encender resistencia
+//Variables del temporizador
 unsigned long tiempo_restante;
 unsigned long tiempo_transcurrido;
 unsigned long tiempoInicio;
@@ -53,13 +53,13 @@ bool temporizadorActivo = false;
 bool confirmTemporizador = false;
 
 //Configuración wifi
-const char* ssid = "TeleCentro-0923";
+const char* ssid = "TeleCentro-0923";//Red del taller
 const char* password = "Motorola123";
 
 // Web server en el puerto 80
 WebServer server(80);
 
-// Función para obtener la página web
+// Pagina web
 String getWebPage() {
   dht.setup(pinDHT, DHTesp::DHT22);
   TempAndHumidity data = dht.getTempAndHumidity();
@@ -68,25 +68,18 @@ String getWebPage() {
                 "td, th {border: 1px solid #dddddd; text-align: left; padding: 8px;}"
                 "tr:nth-child(even) {background-color: #dddddd;}</style></head><body>"
                 "<h2>Estado del Sistema</h2><table><tr><th>Mediciones</th><th>Seteos</th></tr>";
-  
   html += "<tr><td>Temperatura actual: " + String(data.temperature, 1) + " C</td>";
   html += "<td>Temperatura objetivo: " + String(temp_obj) + " C</td></tr>";
-  
   html += "<tr><td>Humedad actual: " + String(data.humidity, 1) + "%</td>";
   html += "<td>Temporizador: " + String(HS_total) + " hs " + String(MIN_total) + " min</td></tr>";
-  
   html += "</table><br><form action='/detener' method='POST'><button type='submit'>Detener Secado</button></form>";
-  
   html += "</body></html>";
-  
   return html;
 }
-
 // Función para manejar las peticiones de la página principal
 void handleRoot() {
   server.send(200, "text/html", getWebPage());
 }
-
 // Función para manejar la acción de detener el secado
 void handleDetener() {
   //secadoActivo = false;  // Detiene el secado
@@ -106,7 +99,6 @@ void setup() {
   server.on("/", handleRoot);
   server.on("/detener", HTTP_POST, handleDetener);
   server.begin();
-
   pinMode(5, INPUT_PULLDOWN);
   pinMode(4, INPUT_PULLDOWN);
   pinMode(2, INPUT_PULLDOWN);
@@ -154,9 +146,7 @@ void loop() {
     display.setTextSize(1);           
     display.setTextColor(SSD1306_WHITE);      
     TempAndHumidity data = dht.getTempAndHumidity();
-
     unsigned long actualMillis = millis(); // Tiempo actual en milisegundos
-
     // Solo actualiza la gráfica si ha pasado el intervalo deseado
     if (actualMillis - ultimaActualizacion >= intervalo) {
       ultimaActualizacion = actualMillis; // Actualiza el tiempo de la última actualización
