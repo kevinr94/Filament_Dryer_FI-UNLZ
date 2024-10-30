@@ -90,9 +90,6 @@ void handleDetener() {
 
 void setup() { 
   WiFi.begin(ssid, password);
-  while (WiFi.status() != WL_CONNECTED) {
-    delay(1000);
-  }
   Serial.begin(115200);
   Serial.println(WiFi.localIP());
   // Inicia el servidor
