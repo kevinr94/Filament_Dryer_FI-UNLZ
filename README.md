@@ -1,9 +1,9 @@
 ![LOGO AZUL HORIZONTAL - fondo transparente](https://github.com/user-attachments/assets/0c875b5b-b05c-4c56-b229-a591ee275421)
 # Filament Dryer for 3D Printing
 
-Author
-
-Kevin RogesStudent ID: 38.175.596Degree: Mechanical Engineering with a focus on Mechatronics
+## Author
+### Kevin RogesStudent
+### Degree: Mechatronics Engineering
 
 Table of Contents
 
