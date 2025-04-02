@@ -3,9 +3,8 @@
 ![image](https://github.com/user-attachments/assets/f9f9b668-f997-4048-9b5e-19d27cdf1f97)
 
 ### Author
-Kevin Roges
-Degree: Mechatronics Engineering
-
+- Kevin Roges
+- Degree: Mechatronics Engineering
 
 ## Introduction
 This project focuses on the development of a filament dryer for 3D printing. The goal is to create an efficient and cost-effective solution to maintain filament quality by reducing moisture absorption.
