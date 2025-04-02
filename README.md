@@ -2,8 +2,8 @@
 # Filament Dryer for 3D Printing
 
 ## Author
-### Kevin RogesStudent
-### Degree: Mechatronics Engineering
+> Kevin RogesStudent
+> Degree: Mechatronics Engineering
 
 Table of Contents
 
