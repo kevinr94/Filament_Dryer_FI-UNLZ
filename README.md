@@ -20,13 +20,3 @@ The project will cover the hardware and software development necessary for the d
 
 ## Summary
 The filament dryer project aims to provide a reliable solution for 3D printing enthusiasts and professionals to maintain filament quality. By integrating sensors to measure humidity and temperature, the system can automatically regulate drying conditions. The design includes a user-friendly interface for monitoring and adjusting settings. The final implementation ensures that filaments are kept at optimal conditions, improving print quality and reducing failures due to moisture absorption.
-
-Solution Engineering
-
-Technical Specifications
-
-(Provide details about power requirements, components used, and overall system capabilities.)
-
-Pin Details
-
-(Include a list of pin configurations and their respective functions.)
